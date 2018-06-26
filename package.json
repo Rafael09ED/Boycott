@@ -1,0 +1,19 @@
+{
+  "name": "opencorporateloader",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "neo4j-driver": "^1.6.1",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-json-pretty": "^1.7.6",
+    "react-scripts": "1.1.4",
+    "wikidata-sdk": "^5.11.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
