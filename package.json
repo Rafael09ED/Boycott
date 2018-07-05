@@ -4,16 +4,15 @@
   "private": true,
   "dependencies": {
     "neo4j-driver": "^1.6.1",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
-    "react-json-pretty": "^1.7.6",
-    "react-scripts": "1.1.4",
+    "node-fetch": "^2.1.2",
+    "prettyjson": "^1.2.1",
     "wikidata-sdk": "^5.11.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "run": "node src/App.es6"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
   }
 }
