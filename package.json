@@ -9,7 +9,8 @@
     "wikidata-sdk": "^5.11.0"
   },
   "scripts": {
-    "run": "node src/App.es6"
+    "run": "node src/App.es6",
+    "run2": "node src/ManualTests.es6"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

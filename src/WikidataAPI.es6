@@ -4,8 +4,10 @@ const wdk = require('wikidata-sdk');
 const prettyjson = require('prettyjson');
 /*
     https://www.wikidata.org/wiki/Wikidata:SPARQL_query_service/queries/examples
-
+	https://query.wikidata.org
  */
+
+// VARIABLES
 
 const wdt = {
     instanceOf: 'P31',
@@ -20,25 +22,32 @@ const wd = {
 
 const endpointUrl = 'https://query.wikidata.org/sparql';
 
+// FUNCTIONS
+
 function getWikidataIdFromWikidataURL(url) {
     return url.split("/").pop();
 }
 
-function cleanResponseValue(value) {
-    const id = getWikidataIdFromWikidataURL(value.item.value);
-    const title = value.itemLabel.value;
-    const desc = (value.itemDescription) ? value.itemDescription.value : undefined;
-    return {id, title, desc}
+function cleanResponseIntoOrganization(value) {
+    const wikidata_id = getWikidataIdFromWikidataURL(value.item.value);
+    const wikidata_name = value.itemLabel.value;
+    const wikidata_description = (value.itemDescription) ? value.itemDescription.value : undefined;
+    return {
+        wikidata_id,
+        wikidata_name,
+        wikidata_description
+    }
 }
 
 function simplifyWikidataResponse(bindings) {
     return Array
         .from(bindings)
-        .map(cleanResponseValue);
+        .map(cleanResponseIntoOrganization);
 }
 
+// CLASS
 
-class WikidataParser {
+class WikidataAPI {
 
     searchForOrganizationsByName(orgName) {
         const numberToGet = 20;
@@ -90,7 +99,6 @@ SELECT ?item ?itemLabel WHERE {
         return fetch(fullUrl, {headers})
             .then(body => body.json());
     }
-
 }
 
-export default WikidataParser;
+export default WikidataAPI;
