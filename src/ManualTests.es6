@@ -1,9 +1,9 @@
-import OpenCorporatesAPI from "./OpenCorporatesAPI";
+import Neo4jInterface from "./Neo4jInterface";
 
-const openCorporate = new OpenCorporatesAPI();
+const neo4jDbProps = {};
+const Neo4j = new Neo4jInterface(neo4jDbProps);
 
 
-openCorporate.getCompanyByName("google")
-    .then(value => {
-        console.log(value);
-    });
+
+const localCorporationDataFormat = {};
+Neo4j.updateWithInfo(localCorporationDataFormat);

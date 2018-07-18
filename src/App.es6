@@ -25,9 +25,11 @@ APIAccessorInstance
         APIAccessorInstance
             .getParentOrganization_wikidata("Q95")
             .then(data => {
-                console.log(data)
+                console.log("- -- - -- - -- - -- - -- - -- - -- - -- - -- - -- -");
+                console.log(data);
+                console.log("- -- - -- - -- - -- - -- - -- - -- - -- - -- - -- -");
+
             });
     });
 
-console.log("- -- - -- - -- - -- - -- - -- - -- - -- - -- - -- -");
 
