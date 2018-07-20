@@ -31,7 +31,7 @@ function getWikidataIdFromWikidataURL(url) {
 function cleanResponseIntoOrganization(value) {
     const wikidata_id = getWikidataIdFromWikidataURL(value.item.value);
     const wikidata_name = value.itemLabel.value;
-    const wikidata_description = (value.itemDescription) ? value.itemDescription.value : undefined;
+    const wikidata_description = (value.itemDescription) ? value.itemDescription.value : null;
     return {
         wikidata_id,
         wikidata_name,

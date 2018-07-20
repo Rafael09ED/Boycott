@@ -1,10 +1,10 @@
-
 /*
 	https://docs.google.com/document/d/1nkifpLDTKNVtRUXca9XQRhZG1BQGOh56egNUCwIhbdI/edit
 */
 
 
 import APIAccessor from './APIAccessor';
+
 const readline = require('readline');
 const rl = readline.createInterface({
     input: process.stdin,
@@ -13,16 +13,19 @@ const rl = readline.createInterface({
 
 const APIAccessorInstance = new APIAccessor();
 
-function getCompanyInfo(searchTerm) {
+function getCorporationInfo(searchTerm) {
     APIAccessorInstance
         .searchNames_wikidata(searchTerm)
         .then(data => {
             console.log(`Search Term: ${searchTerm}`);
+            if (data.length <= 0){
+                console.log("No results found");
+                return;
+            }
+
             console.log("First Result: ");
             const firstResult = data[0];
             console.log(firstResult);
-            if (firstResult === undefined)
-                return;
             const searchID = firstResult.wikidata_id;
             APIAccessorInstance
                 .getParentOrganization_wikidata(searchID)
@@ -44,7 +47,7 @@ function getCompanyInfo(searchTerm) {
 }
 
 rl.question('Enter Company Name\n', searchTerm => {
-    getCompanyInfo(searchTerm);
+    getCorporationInfo(searchTerm);
     rl.close();
 });
 

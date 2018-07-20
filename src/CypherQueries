@@ -1,0 +1,6 @@
+/*
+  Cheat Sheet: https://neo4j.com/docs/cypher-refcard/current/
+*/
+
+MATCH (n)
+RETURN n;
