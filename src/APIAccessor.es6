@@ -22,12 +22,17 @@ class APIAccessor {
     }
 
     searchNames_wikidata(searchTerm) {
-        return this.state.wikidata.searchForOrganizationsByName(searchTerm);
+        return this.state.wikidataParser.searchForOrganizationsByName(searchTerm);
     }
 
     getParentOrganization_wikidata(wikidataId){
-        return this.state.wikidata.getParentOrganizationFromId(wikidataId);
+        return this.state.wikidataParser.getParentOrganizationFromId(wikidataId);
     }
+
+    getSubsidiaryOrganizations_wikidata(wikidataId){
+        return this.state.wikidataParser.getSubsidiariesFromId(wikidataId);
+    }
+
 
 }
 

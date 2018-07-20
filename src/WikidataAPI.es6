@@ -89,7 +89,7 @@ SELECT ?item ?itemLabel ?itemDescription WHERE {
 
     getValueFromProperty(wikidataId, wikidataType) {
         const sparqlQuery = `
-SELECT ?item ?itemLabel WHERE {
+SELECT ?item ?itemLabel ?itemDescription WHERE {
 	wd:${wikidataId} wdt:${wikidataType} ?item .
 	SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en" }
 }`;
